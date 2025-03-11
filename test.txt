@@ -1,1 +1,2 @@
-giyhub projesi icin ornek dosya.
+github projesi icin ornek dosya.
+github in yazim hatasi duzeltildi, ikinci satir eklendi.
