@@ -1,0 +1,1 @@
+yeni kitap yeni satir mainde... bu satiri feat2 brach icinde ekleme yaptim. /// buraya feat2 den de ekleme yaptim simdi bunu maine merge etmeye calisicam.
