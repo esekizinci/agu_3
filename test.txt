@@ -1,2 +1,4 @@
 github projesi icin ornek dosya.
 github in yazim hatasi duzeltildi, ikinci satir eklendi.
+vs code icerisinden bir degisiklik yaptim!
+Commit edip Push edecegim.
