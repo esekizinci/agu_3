@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800px, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+}
+</style>
+<body>
+    <button onclick='alert("Hello")'>
+        Press here</button><br><br>
+        
+    <img src="https://blob.sololearn.com/courses/shore.jpg" 
+        onclick='width=500'><br><br>
+
+        <img src="https://blob.sololearn.com/courses/shore1.jpg"
+onclick='src="https://blob.sololearn.com/courses/shore.jpg"'>
+
+<div>
+    <img id="robot" 
+    src="https://blob.sololearn.com/courses/robot-c.jpg"><br>
+    <button 
+    onclick="robot.src='https://blob.sololearn.com/courses/robot-l.jpg'">
+    Left</button>
+    <button 
+    onclick="robot.src='https://blob.sololearn.com/courses/robot-r.jpg'">
+    Right</button>
+</div>
+
+<p>Check the console below to see the logged message</p>
+
+<p id="test">test message</p>
+
+<script>
+//document.getElementById('test').textContent = 'degismis icerik';
+//console.log("Welcome to the console");
+//console.log("1st message");
+//console.log('2nd message'); //Burada hata var ve browser console'da goruntulenebiliyor.
+//console.log("3rd message");
+//console.log(100); //console a gonderilecek mesaj numerik ise tirnak icerisinde yazilmamasi lazimdir.
+</script>
+
+</body>
+</html>
+
+<!--
+Her sayfa yenilemesinde yuklenecegi icin sayfa uzerinde otomatik aksiyon aliyor.
+<div>
+    <p>The web browser executes the script when it loads the page.</p>
+</div>
+
+<script>
+    alert("Message");
+</script>
+
+
+===
+Sirasiyla welcome mesajini ekranda gosteriyor ve sonrasinda console'a mesaji iletiyor. hepsi script topic icerisinde yaziliyor.
+/script/
+let message1 = "Welcome";
+let message2 = "Test completed";
+alert(message1);
+console.log(message2);
+/script/
+
+variable icerisinde kullanilan value'lar degistirilebilir. Yeni value nun tanimlanmasi icin tekrar let kullanilmasina gerek yoktur.
+let price = 99;
+price = 100;
+alert(price);
+script cagirildiginda ekranda 100 yazicak.
+-->

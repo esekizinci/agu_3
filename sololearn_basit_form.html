@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#table {
+    background-color: #525252;
+    padding: 20px;
+    color: white;
+}
+
+#dataTable {
+    width: 60%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    color: white;
+}
+
+th, td {
+    border: 1px solid #DDDDDD;
+    padding: 8px;
+}
+
+th {
+    background-color: #494949;
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    text-align: left;
+}
+
+h2{
+    text-align: center;
+}
+</style>
+<body>
+    <form id="myForm">
+      <label for="city">Enter city:</label>
+      <input type="text" id="city"></br></br>
+      <label for="country">Enter country:</label>
+      <input type="text" id="country"></br></br>
+      <input type="submit">
+    </form>
+  
+  <div id="table">
+    <h2>Database Simulation</h2>
+    <table id="dataTable">
+      <tr>
+        <th>city</th>
+        <th>country</th>
+      </tr>
+    </table>
+  </div>
+  </body>
+
+<script>
+
+function processFormData() {
+  // Access the form
+  let form = document.getElementById('myForm');
+  //Access the elements by name and get values
+  let city = form.elements.city.value;
+  let country = form.elements.country.value;
+
+  insertData(city, country);
+    
+  document.getElementById('city').value = '';
+  document.getElementById('country').value = '';
+};
+</script>
+</html>
+
+

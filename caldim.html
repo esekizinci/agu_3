@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Installation & Configuration - pfSense REST API Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation \u0026 Configuration";
+        var mkdocs_page_input_path = "INSTALL_AND_CONFIG.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> pfSense REST API Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">General</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation & Configuration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#hardware-requirements">Hardware requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#supported-pfsense-versions">Supported pfSense versions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-the-package">Installing the package</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring-the-package">Configuring the package</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deleting-the-package">Deleting the package</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#updating-the-package">Updating the package</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-pfsense-webconfigurator">From the pfSense webConfigurator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-api">From the API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-command-line">From the command line</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#versioning-policy">Versioning policy</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pre-release-versions">Pre-release versions</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SWAGGER_AND_OPENAPI/">Swagger & OpenAPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ENDPOINT_TYPES/">Endpoint Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AUTHENTICATION_AND_AUTHORIZATION/">Authentication & Authorization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CONTENT_AND_ACCEPT_TYPES/">Content & Accept Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../QUERIES_FILTERS_AND_SORTING/">Queries, Filters & Sorting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../WORKING_WITH_OBJECT_IDS/">Working with Object IDs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../WORKING_WITH_HATEOAS/">Working with HATEOAS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../COMMON_CONTROL_PARAMETERS/">Common Control Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GRAPHQL/">GraphQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../LIMITATIONS_AND_FAQS/">Limitations & FAQs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://pfrest.org/api-docs/">API Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Advanced Topics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ADVANCED_TOPICS_INTRO/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/">Contributing & Development</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SECURITY/">Security Policy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_AUTH_CLASSES/">Building Custom Authentication</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_QUERY_FILTER_CLASSES/">Building Custom Query Filters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_MODEL_CLASSES/">Building Custom Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_ENDPOINT_CLASSES/">Building Custom Endpoints</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_VALIDATOR_CLASSES/">Building Custom Validators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_DISPATCHER_CLASSES/">Building Custom Dispatchers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_CACHE_CLASSES/">Building Custom Caches</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BUILDING_CUSTOM_CONTENT_HANDLER_CLASSES/">Building Custom Content Handlers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://pfrest.org/php-docs/">PHP Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">pfSense REST API Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">General</li>
+      <li class="breadcrumb-item active">Installation & Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installation-and-configuration">Installation and Configuration</h1>
+<h2 id="requirements">Requirements</h2>
+<h3 id="hardware-requirements">Hardware requirements</h3>
+<p>Overall, the REST API package is designed to be as lightweight as possible and should run fine on any hardware that can
+run pfSense. It's recommended to follow Netgate's <a href="https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html">minimum hardware requirements</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>The package is currently not compatible with 32-bit builds of pfSense. It is recommended to use the <a href="https://github.com/jaredhendrickson13/pfsense-api/tree/legacy">legacy v1 package</a> for 32-bit systems.</li>
+<li>While the package should behave identically on 64-bit architectures other than amd64, automated testing only covers amd64
+builds of pfSense. Support on other architectures is not guaranteed.</li>
+</ul>
+</div>
+<h3 id="supported-pfsense-versions">Supported pfSense versions</h3>
+<ul>
+<li>pfSense CE 2.7.2</li>
+<li>pfSense Plus 24.03</li>
+<li>pfSense Plus 24.11</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Installation of the package on unsupported versions of pfSense may result in unexpected behavior and/or system instability.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Don't see your version of pfSense? Older versions of pfSense may be supported by older versions of this package.
+Check the <a href="https://github.com/jaredhendrickson13/pfsense-api/releases">releases page</a>.</p>
+</div>
+<h2 id="installing-the-package">Installing the package</h2>
+<p>The pfSense REST API package is built just like any other pfSense package and can therefor be installed easily using
+<code>pkg</code> from the pfSense command line. Below are the installation commands for the latest version of the package.</p>
+<p><strong>Install on pfSense CE</strong></p>
+<pre class="codehilite"><code class="language-bash linenums">pkg-static add https://github.com/jaredhendrickson13/pfsense-api/releases/latest/download/pfSense-2.7.2-pkg-RESTAPI.pkg
+</code></pre>
+
+<p><strong>Install on pfSense Plus</strong></p>
+<pre class="codehilite"><code class="language-bash linenums">pkg-static -C /dev/null add https://github.com/jaredhendrickson13/pfsense-api/releases/latest/download/pfSense-24.03-pkg-RESTAPI.pkg
+</code></pre>
+
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li>You may need to customize the installation command to reference the package built for your pfSense version. Check
+  the <a href="https://github.com/jaredhendrickson13/pfsense-api/releases">releases page</a> to find the package built for
+  your version of pfSense.</li>
+<li>When updating pfSense, <strong>you must reinstall this package afterward</strong> as pfSense removes unofficial packages during
+  system updates and has no way to automatically reinstall them. </li>
+<li>If you're looking for a method of programmatically installing the package without SSH, check out 
+  <a href="https://github.com/jaredhendrickson13/pfsense-vshell">pfsense-vshell</a>!</li>
+</ul>
+</div>
+<h2 id="configuring-the-package">Configuring the package</h2>
+<p>The REST API is designed to be ready to use out of the box. However, there are a number of configuration options available to
+you to customize the API to your needs. The REST API settings can be configured in pfSense webConfigurator under
+'System' -&gt; 'REST API' or via <code>PATCH</code> request to the <a href="https://pfrest.org/api-docs/#/SYSTEM/patchSystemRESTAPISettingsEndpoint">/api/v2/system/restapi/settings</a>
+endpoint.</p>
+<h2 id="deleting-the-package">Deleting the package</h2>
+<p>To remove the REST API package from your pfSense instance, you can use the following command:</p>
+<pre class="codehilite"><code class="language-bash linenums">pfsense-restapi delete
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the event that you are unable to use the <code>pfsense-restapi</code> command, you can manually remove the package by
+running <code>pkg-static delete pfSense-pkg-RESTAPI</code>.</p>
+</div>
+<h2 id="updating-the-package">Updating the package</h2>
+<p>Before updating the package, it is recommended to enable the REST API's 'Keep Backup' setting to ensure that your
+REST API configurations, keys and access lists are not lost during the update process. It is also highly recommended to
+read and understand both the release change notes on GitHub and the <a href="#versioning-policy">versioning policy</a> to ensure
+you do not unintentionally introduce breaking changes to your environment.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>While the package is updating, the REST API may be unavailable for a short period of time. Updates typically complete
+within a minute, but may vary depending on network environment and conditions. It is recommended to
+schedule updates during off-peak hours to minimize impact to your integrations. In the event that the update fails,
+or takes an excessive amount of time, it is recommended to uninstall and reinstall the package.</p>
+</div>
+<h3 id="from-the-pfsense-webconfigurator">From the pfSense webConfigurator</h3>
+<p>You can easily update or revert the package version from the pfSense webConfigurator by navigating to 'System' -&gt; 
+'REST API' -&gt; 'Updates' and select the desired version. Click 'Save' to apply the desired version. </p>
+<h3 id="from-the-api">From the API</h3>
+<p>You can update or revert the package to a specified version by sending a request to the <a href="https://pfrest.org/api-docs/#/SYSTEM/patchSystemRESTAPIVersionEndpoint">PATCH 
+/api/v2/system/restapi/version</a> endpoint.
+Simply set the <code>install_version</code> field to the desired version and send the request.</p>
+<h3 id="from-the-command-line">From the command line</h3>
+<p>You can update the package to latest version available to your pfSense version by running the following command:</p>
+<pre class="codehilite"><code class="language-bash linenums">pfsense-restapi update
+</code></pre>
+
+<p>If you need to revert or upgrade the package to a <em>specific</em> version, you can do so by running the following command:</p>
+<pre class="codehilite"><code class="language-bash linenums">pfsense-restapi revert &lt;version&gt;
+</code></pre>
+
+<h2 id="versioning-policy">Versioning policy</h2>
+<p>The REST API package loosely follows <a href="https://semver.org/">Semantic Versioning</a>. The versioning policy is as follows:</p>
+<ul>
+<li>Major version changes (e.g. 1.x.x to 2.x.x) may include major breaking changes and are not guaranteed to be backwards
+  compatible. Major changes will often include significant changes to the framework, endpoints, schemas, and/or behavior.</li>
+<li>Minor version changes (e.g. 2.0.x to 2.1.x) may include new features, bug fixes, and/or minor breaking changes. Breaking
+  changes will be isolated to specific endpoints and will be documented in the release notes.</li>
+<li>Patch version changes (e.g. 2.0.0 to 2.0.1) will only include bug fixes and very small enhancements. Patches will
+  never contain breaking changes or significant new features that could impact existing functionality.</li>
+</ul>
+<h3 id="pre-release-versions">Pre-release versions</h3>
+<p>Pre-release versions are occasionally made available to the public to allow for testing of new features and fixes. 
+Pre-releases will be notated as such on GitHub and are not considered as release candidates within the REST API package's
+update features by default. You may opt-in to pre-release updates by enabling the 'Allow Pre-releases' setting in the
+REST API settings.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pre-release versions may contain breaking changes, bugs, and/or incomplete features. It is recommended to only use
+pre-release versions in testing environments and never in production.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../SWAGGER_AND_OPENAPI/" class="btn btn-neutral float-right" title="Swagger & OpenAPI">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../SWAGGER_AND_OPENAPI/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+

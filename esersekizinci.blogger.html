@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><$BlogPageTitle$></title>
+    
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: monospace, sans-serif;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      line-height: 1.6;
+      padding: 50px;
+      text-align: left;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+
+    .description {
+      font-size: 1em;
+      opacity: 0.9;
+      color: #f0f0f0;
+    }
+
+    .post {
+      margin-bottom: 40px;
+    }
+
+    .post h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 5px;
+      color: #2c3e50;
+    }
+
+    .post time {
+      font-size: 0.9em;
+      color: #7f8c8d;
+    }
+
+    .post-content {
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    .post-content img {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .post-content img.enlarged {
+      transform: scale(1.3);
+      z-index: 10;
+    }
+
+    pre {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+
+    img.toggle-img {
+      transition: all 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    img.toggle-img.enlarged {
+      max-width: 150% !important;
+      cursor: zoom-out;
+      display: block;
+      margin: 2em auto;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #2c3e50;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("img.toggle-img").forEach((img) => {
+        img.addEventListener("click", () => {
+          img.classList.toggle("enlarged");
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1><$BlogTitle$></h1>
+      <p class="description"><$BlogDescription$></p>
+    </header>
+
+    <Blogger>
+      <Blog>
+        <div class="post">
+          <h2><$BlogItemTitle$></h2>
+          <time><$BlogItemDateTime$></time>
+          <div class="post-content">
+            <$BlogItemBody$>
+          </div>
+        </div>
+      </Blog>
+    </Blogger>
+
+    <footer>
+      <p><a href="<$BlogURL$>">&lt;&lt; <$I18NHome$></a></p>
+      <p>&copy; 2025 Eser Sekizinci</p>
+    </footer>
+  </div>
+</body>
+</html>

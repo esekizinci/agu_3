@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800px">
+    <title>Document</title>
+</head>
+
+<body>  
+    <p id="p1">Text</p>
+
+    <button onclick = 'myFunction()'>
+    Click to style the paragraph, initial-scale=1.0"
+    </button>
+
+    <button onclick="prompt()">
+        Click to enter your name</button>
+
+
+        <p id="welcomeMessage">Welcome back</p>
+        <p id="userName"></p>
+        
+    <script>
+        function myFunction() {
+        let x = document.getElementById("p1");
+        x.style.color = "green";
+        x.style.border = "dashed";
+        }
+
+        let userName = prompt("Please enter your name");
+document.getElementById('userName').textContent = userName;
+    </script>
+</body>
+
+</html>
